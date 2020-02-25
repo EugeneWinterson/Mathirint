@@ -2,16 +2,22 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <MainMenu/>
+    <SingleGame/>
+    <GameField/>
   </div>
 </template>
 
 <script>
   import MainMenu from './components/MainMenu.vue'
+  import SingleGame from './components/SingleGame.vue'
+  import GameField from './components/GameField.vue'
 
   export default {
     name: 'app',
     components: {
-      MainMenu
+      MainMenu,
+      SingleGame,
+      GameField
     }
   }
 </script>
