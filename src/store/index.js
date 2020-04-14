@@ -5,23 +5,30 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    typeOfGame: 'none'
+    typeOfGame: 'none',
+    stateList:  [
+      'single',
+      'multiplayer',
+      'settings'
+    ],
   },
   mutations: {
     SET_TYPE_OF_GAME: (state, payload) => {
-      state.typeOfGame = payload;
+      state.typeOfGame = payload
     }
   },
   actions: {
     SET_TYPE_OF_GAME: (injectee, typeOfGame) => {
-      injectee.commit('SET_TYPE_OF_GAME', typeOfGame);
+      injectee.commit('SET_TYPE_OF_GAME', typeOfGame)
     }
   },
   getters: {
     typeGame: state => {
-      return state.typeOfGame;
+      return state.typeOfGame
+    },
+    stateList: state => {
+      return state.stateList
     }
   },
-  modules: {
-  }
+  modules: {}
 })

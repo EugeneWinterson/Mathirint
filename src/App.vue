@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <div>
+      <a>state:{{this.getState}}</a>
+    </div>
     <MainMenu/>
   </div>
 </template>
@@ -12,6 +14,11 @@
     name: 'app',
     components: {
       MainMenu
+    },
+    computed : {
+      getState()  {
+        return this.$store.state.typeOfGame;
+      }
     }
   }
 </script>
