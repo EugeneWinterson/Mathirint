@@ -3,21 +3,28 @@
     <div>
       <a>state:{{this.getState}}</a>
     </div>
-    <MainMenu/>
+    <div v-if="!this.$store.state.isLoggedIn">
+      <StartScreen/>
+    </div>
+    <div v-if="this.$store.state.isLoggedIn">
+      <MainMenu/>
+    </div>
   </div>
 </template>
 
 <script>
   import MainMenu from './components/MainMenu.vue'
+  import StartScreen from  './components/StartScreen.vue'
 
   export default {
     name: 'app',
     components: {
-      MainMenu
+      MainMenu,
+      StartScreen
     },
-    computed : {
-      getState()  {
-        return this.$store.state.typeOfGame;
+    computed: {
+      getState () {
+        return this.$store.state.typeOfGame
       }
     }
   }

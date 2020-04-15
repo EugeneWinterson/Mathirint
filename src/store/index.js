@@ -11,15 +11,22 @@ export default new Vuex.Store({
       'multiplayer',
       'settings'
     ],
+    isLoggedIn: false
   },
   mutations: {
     SET_TYPE_OF_GAME: (state, payload) => {
       state.typeOfGame = payload
+    },
+    SET_LOG_IN: (state, payload) => {
+      state.isLoggedIn = payload
     }
   },
   actions: {
     SET_TYPE_OF_GAME: (injectee, typeOfGame) => {
       injectee.commit('SET_TYPE_OF_GAME', typeOfGame)
+    },
+    SET_LOG_IN: (injectee, isLogged) => {
+      injectee.commit('SET_LOG_IN', isLogged)
     }
   },
   getters: {
