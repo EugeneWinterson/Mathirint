@@ -1,10 +1,11 @@
 <template>
   <div>
+    <header>Hello {{this.$store.state.currentUser}}</header>
     <div class="menuBackground">
       <h1 id="gameName">MATHIRINT</h1>
       <h5>test yourself</h5>
       <div class="menuButtons">
-        <button @click="setTypeGame('single')">New Game</button>
+        <button @click="setTypeGame('single')">Singleplayer</button>
         <button @click="setTypeGame('multiplayer')">Multiplayer</button>
         <button @click="setTypeGame('settings')">Settings</button>
       </div>
