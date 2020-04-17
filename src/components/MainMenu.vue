@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header>Hello {{this.$store.state.currentUser}}</header>
+    <header>Hello {{this.$store.state.currentUser.name}}</header>
     <div class="menuBackground">
       <h1 id="gameName">MATHIRINT</h1>
       <h5>test yourself</h5>

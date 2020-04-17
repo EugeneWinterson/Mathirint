@@ -12,21 +12,28 @@ export default new Vuex.Store({
       'settings'
     ],
     isLoggedIn: false,
+    isLoggedInSuccess: false,
     isSingIn: false,
-    currentUser: 'null'
+    currentUser: {
+     name: null,
+     email: null
+    }
   },
   mutations: {
     SET_TYPE_OF_GAME: (state, payload) => {
       state.typeOfGame = payload
     },
     SET_LOG_IN: (state, payload) => {
-      state.isLoggedIn = payload
+      state.isLoggedInSuccess = payload
     },
     GET_SIGN_IN_FORM: (state, payload) => {
       state.isSingIn = payload
     },
+    GET_LOG_IN_FORM: (state, payload) => {
+      state.isLoggedIn = payload
+    },
     SET_CURRENT_USER_NAME: (state, payload) => {
-      state.currentUser = payload
+      state.currentUser.name = payload
     }
   },
   actions: {
@@ -38,6 +45,9 @@ export default new Vuex.Store({
     },
     GET_SIGN_IN_FORM: (injectee, isSingIn) =>  {
       injectee.commit('GET_SIGN_IN_FORM', isSingIn)
+    },
+    GET_LOG_IN_FORM: (injectee, payload) => {
+      injectee.commit('GET_LOG_IN_FORM', payload)
     },
     SET_CURRENT_USER_NAME: (injectee, userName) => {
       injectee.commit('SET_CURRENT_USER_NAME', userName)
