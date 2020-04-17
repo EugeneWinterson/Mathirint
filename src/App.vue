@@ -3,10 +3,10 @@
     <div>
       <a>state:{{this.getState}}</a>
     </div>
-    <div v-if="!this.$store.state.isLoggedIn">
+    <div v-if="!this.$store.state.isLoggedInSuccess">
       <StartScreen/>
     </div>
-    <div v-if="this.$store.state.isLoggedIn">
+    <div v-if="this.$store.state.isLoggedInSuccess">
       <MainMenu/>
     </div>
   </div>
