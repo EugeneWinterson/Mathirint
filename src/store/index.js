@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     typeOfGame: 'none',
-    stateList:  [
+    stateList: [
       'single',
       'multiplayer',
       'settings'
@@ -14,9 +14,18 @@ export default new Vuex.Store({
     isLoggedIn: false,
     isLoggedInSuccess: false,
     isSingIn: false,
+    levels: {
+      level1: [
+        [1, 2, 0, 0],
+        [0, 2, 0, 0],
+        [0, 2, 0, 0],
+        [0, 2, 2, 1]
+      ]
+    },
     currentUser: {
-     name: null,
-     email: null
+      name: null,
+      email: null,
+      currentLevel: 'level1'
     }
   },
   mutations: {
@@ -43,7 +52,7 @@ export default new Vuex.Store({
     SET_LOG_IN: (injectee, isLogged) => {
       injectee.commit('SET_LOG_IN', isLogged)
     },
-    GET_SIGN_IN_FORM: (injectee, isSingIn) =>  {
+    GET_SIGN_IN_FORM: (injectee, isSingIn) => {
       injectee.commit('GET_SIGN_IN_FORM', isSingIn)
     },
     GET_LOG_IN_FORM: (injectee, payload) => {
@@ -62,6 +71,9 @@ export default new Vuex.Store({
     },
     currentUser: state => {
       return state.currentUser
+    },
+    currentUserLevel: state => level => {
+      return state.levels[level]
     }
   },
   modules: {}

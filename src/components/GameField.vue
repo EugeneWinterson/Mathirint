@@ -1,28 +1,27 @@
 <script>
   export default {
     name: 'GameField',
-    data: () => {
-      return {
-        field: 10
-      }
-    },
     methods: {
-      createField: (field) => {
-        alert('created field:' + field + 'x' + field)
+      getCurrentLevel () {
+        let level = this.$store.state.currentUser.currentLevel
+        return this.$store.getters.currentUserLevel(level)
       }
     },
 
     render: function (createElement) {
-      let vueArray = [
-        'Vue',
-        'is',
-        'awesome'
-      ]
-      return createElement('h1', [
-        vueArray.join(' '),
-        [
-          createElement(this.createField(this.field))
-        ]
+      let level = this.getCurrentLevel()
+      return createElement('table', {}, [
+        level.map((row) => createElement(
+          'tr',
+          {},
+          [
+            row.map((cell) => createElement(
+              'td',
+              {},
+              [cell]
+            ))
+          ]
+        ))
       ])
     }
   }
