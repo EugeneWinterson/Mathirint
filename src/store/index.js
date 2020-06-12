@@ -23,7 +23,7 @@ export default new Vuex.Store({
       ]
     },
     currentUser: {
-      name: null,
+      name: 'noUser',
       email: null,
       currentLevel: 'level1'
     }
@@ -69,8 +69,8 @@ export default new Vuex.Store({
     stateList: state => {
       return state.stateList
     },
-    currentUser: state => {
-      return state.currentUser
+    getCurrentUserName: state => {
+      return state.currentUser.name
     },
     currentUserLevel: state => level => {
       return state.levels[level]

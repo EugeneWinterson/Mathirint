@@ -8,17 +8,19 @@
 import { mount } from '@vue/test-utils'
 import MainMenu from '@/components/MainMenu.vue'
 
-const wrapper = mount(MainMenu)
-var assert = require('chai').assert
 
+
+var assert = require('chai').assert
 describe('Main menu', () => {
+
+  const wrapper = mount(MainMenu)
   it('Main menu has 3 buttons', () => {
+
     let buttons = wrapper.findAll('button')
     assert.equal(buttons.length, 3)
   })
-
-  it('Game Name = MATHIRINT', () => {
-    let gameName = wrapper.find('#gameName').text()
-    assert.equal(gameName, 'MATHIRINT')
+  it('should name is \'noUser\' before Login', function () {
+    assert.equal(wrapper.find('header').text(), 'Hello noUser')
   })
+
 })
