@@ -4,6 +4,15 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  currentUser: {
+    name: 'noUser',
+    dateOfBirth: '01.01.1951',
+    country: 'noCountry',
+    city: 'noCity',
+    email: null,
+    userRating: '0.0000',
+    currentLevel: 'level1',
+  },
   state: {
     typeOfGame: 'none',
     stateList: [
@@ -12,20 +21,18 @@ export default new Vuex.Store({
       'settings'
     ],
     isLoggedIn: false,
-    isLoggedInSuccess: false,
+    isLoggedInSuccess: true,
     isSingIn: false,
     levels: {
       level1: [
-        [1, 2, 0, 0],
-        [0, 2, 0, 0],
-        [0, 2, 0, 0],
-        [0, 2, 2, 1]
+        ['1', '+2', '-8', '-2'],
+        ['-1', '+3', '+5', '+1'],
+        ['+8', '-4', '-6', '+4'],
+        ['-2', '+7', '-5', '4']
       ]
     },
-    currentUser: {
-      name: 'noUser',
-      email: null,
-      currentLevel: 'level1'
+    texturePath: {
+      rock: 'src/assets/rock.jpg'
     }
   },
   mutations: {
